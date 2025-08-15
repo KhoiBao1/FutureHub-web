@@ -39,10 +39,21 @@ router.get('/', async (req, res) => {
 });
 
 // --- Static pages (huong-dan, security, dangki, Payment) ---
-router.get(['/huong-dan.html', '/security.html', '/dangki.html', '/Payment.html'], (req, res) => {
-  const page = req.path.replace('.html','').substring(1); // lấy tên file ejs
+router.get(['/huong-dan.html', '/security.html', '/register.html', '/Payment.html'], (req, res) => {
+  let page = req.path.replace('.html','').substring(1);
+
+  // map route với tên file thực tế
+  const pageMap = {
+    'huong-dan': 'huongdan',
+    'register': 'register',
+    'security': 'security',
+    'Payment': 'Payment'
+  };
+  if (pageMap[page]) page = pageMap[page];
+
   res.render(`site/${page}`, { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
+
 
 // --- Category page ---
 router.get('/danh-muc/:name.:id.html', async (req, res) => {
