@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "6763013d6b0f34227c0234c5"
+  },
+  "id": 16,
+  "name": "Cảm biến",
+  "urlRewriteName": "cam-bien",
+  "isDeleted": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67639bd823467e275c21635c"
+  },
+  "id": 17,
+  "name": "Laptop",
+  "urlRewriteName": "laptop",
+  "isDeleted": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67639c0c23467e275c21635d"
+  },
+  "id": 18,
+  "name": "Phụ Kiện",
+  "urlRewriteName": "phu-kien",
+  "isDeleted": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67639c2223467e275c21635f"
+  },
+  "id": 20,
+  "name": "Đồng hồ",
+  "urlRewriteName": "dong-ho",
+  "isDeleted": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67639c1223467e275c21635e"
+  },
+  "id": 19,
+  "name": "Robot",
+  "urlRewriteName": "robot",
+  "isDeleted": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67639c2623467e275c216360"
+  },
+  "id": 21,
+  "name": "Camera",
+  "urlRewriteName": "camera",
+  "isDeleted": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62e3cdeaaa30fe0559c440d8"
+  }
+},
+{
+  "_id": {
+    "$oid": "6305d9b8864c29cba164f3cd"
+  }
+},
+{
+  "_id": {
+    "$oid": "689e8f9504e5369ad85399aa"
+  },
+  "id": 16,
+  "name": "Linh kiện điện tử",
+  "urlRewriteName": "linh-kien-dien-tu",
+  "isDeleted": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea4d404e5369ad85399b2"
+  },
+  "id": 17,
+  "name": "Arduino",
+  "urlRewriteName": "arduino",
+  "isDeleted": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eb85a04e5369ad85399bb"
+  },
+  "id": 18,
+  "name": "STEM Robotics",
+  "urlRewriteName": "stem-robotics",
+  "isDeleted": false,
+  "__v": 0
+}]

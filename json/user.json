@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "5f8b0dc2e95f47cdc246dc0a"
+  },
+  "id": 1,
+  "fullname": "Bảo Khôi",
+  "email": "admin@gmail.com",
+  "password": "$2a$16$7DNIJm6ye79xEyWDVwd88uuxZAt4LMkJ9heNIB7PD8zSlADMKFkPu",
+  "roles": [
+    "ADMIN"
+  ],
+  "photo": "1755151659242_462558482_2044570722677367_2914801556270840208_n.png"
+},
+{
+  "_id": {
+    "$oid": "689e8ffe04e5369ad85399ab"
+  },
+  "id": 17,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$x/gcB8EN8pKeHzBCMNpr/.ZLsUEj60VJZjKA5bOske6vSs9LHwUHu",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0,
+  "isDeleted": true
+},
+{
+  "_id": {
+    "$oid": "689e900b04e5369ad85399ad"
+  },
+  "id": 19,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$agpOtQoD88EcZ4VzVn/LPuMHhAK1tyYZF2uTB9O8UdxV3sbKhoVBW",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0,
+  "isDeleted": true
+},
+{
+  "_id": {
+    "$oid": "689e900404e5369ad85399ac"
+  },
+  "id": 18,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$ictBF0QC2jTIiE/oyS754.cYN6Izn6Rj17tfIYe96p8DOe36dqCMC",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0,
+  "isDeleted": true
+},
+{
+  "_id": {
+    "$oid": "689e901104e5369ad85399ae"
+  },
+  "id": 20,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$hfkBkZgZCDxHp.gDU6UaZOjawvZDn2tOfVO514WuMLXnSKGOWL4H.",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0,
+  "isDeleted": true
+},
+{
+  "_id": {
+    "$oid": "689e901f04e5369ad85399b0"
+  },
+  "id": 22,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$p7ATK1OtPIERIBh8EXlwLei53ZRdMOCcuzJYqVqc2feXNBghqz4JS",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0,
+  "isDeleted": true
+},
+{
+  "_id": {
+    "$oid": "689e901804e5369ad85399af"
+  },
+  "id": 21,
+  "fullname": "khoiBao123",
+  "email": "khoi@gmail.com",
+  "password": "$2a$16$ojMGLN0.VG.uadCw6VBT7uwLvSp.89k25M4SI5QVebkZRcVEqAhrW",
+  "roles": [
+    "CUSTOMER"
+  ],
+  "__v": 0
+}]

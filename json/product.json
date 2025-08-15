@@ -1,0 +1,340 @@
+[{
+  "_id": {
+    "$oid": "676304bb6b0f34227c0234c6"
+  },
+  "id": 126,
+  "name": "Samsung Galaxy S24 8GB 256GB",
+  "urlRewriteName": "samsung-galaxy-s24-8gb-256gb",
+  "categoryId": 16,
+  "description": "Đặc điểm nổi bật của Samsung Galaxy S24 8GB 256GB:\r\nKhai phá tiềm năng sáng tạo không giới hạn với tính năng AI - Phiên dịch cuộc gọi, trợ lí chỉnh ảnh\r\nSắc nét từng chi tiết - Camera 50MP với với công nghệ ProVisual, chụp đêm và siêu thu phóng\r\nPin tối ưu thông minh cho cả ngày tràn đầy năng lượng - Viên pin 4000mAh cho phép bạn xem video liên tục đến 29 giờ\r\nNâng cấp màn hình trải nghiệm tuyệt đỉnh - Màn hình 6.2\" inch Dynamic AMOLED 2X cùng tần số quét 120Hz",
+  "price": 22990000,
+  "sale": 10,
+  "isDeleted": true,
+  "salePrice": 20691000,
+  "photo": "1734542523762_samsung-galaxy-s24_7_.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea54504e5369ad85399b3"
+  },
+  "id": 126,
+  "name": " Bộ Arduino Uno R3 nâng cao",
+  "urlRewriteName": "-bo-arduino-uno-r3-nang-cao",
+  "categoryId": 17,
+  "description": "     Bộ Arduino Advanced Kit [Bộ Kit Arduino nâng cao] gồm: Một KIT Arduino Uno R3 và một số lượng lớn các Module cần thiết sẽ giúp bạn xây dựng các Dự án sáng tạo . Đặc biệt là các bạn mới tiếp xúc và làm quen với Arduino, muốn đi từ Cơ bản đến Nâng cao.\r\n\r\n   \r\n\r\n    TẠI SAO CHỌN BỘ ARDUINO NÂNG CAO?\r\n\r\n- Số lượng Module (Cảm biến) nhiều => Tiếp xúc nhiều loại Module\r\n\r\n- CODE MẪU TẶNG KÈM                  => Học nhanh + Hiệu Quả\r\n\r\n- Sử dụng Arduino Uno R3 chip cắm (Chip nạp ATMEGA16U2)\r\n\r\n- Với Bộ Advanced thực hành: UART, I2C, SPI, IN-OUT, ANALOG,...\r\n\r\n=>LƯU Ý:   MODULE LCD_I2C (Một số bộ KIT thị trường chỉ LCD thường, không có I2C tích hợp, nên khó học về LCD); MODULE THỜI GIAN THỰC, TẶNG KÈM PIN",
+  "price": 575000,
+  "sale": 3,
+  "isDeleted": false,
+  "salePrice": 557750,
+  "photo": "1755227461694_78e224dd958f73ceb5e49820b900b219.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea71e04e5369ad85399b4"
+  },
+  "id": 127,
+  "name": "KIT Arduino Uno R3 Atmega 328P Chíp Cắm Có Kèm Dây Cáp",
+  "urlRewriteName": "kit-arduino-uno-r3-atmega-328p-chip-cam-co-kem-day-cap",
+  "categoryId": 17,
+  "description": "Kit Arduino Uno R3 ATmega 328P Chíp Cắm họ 8bit\r\n\r\nThông số \r\n\r\nĐiện áp hoạt động\t5V DC (chỉ được cấp qua cổng USB)\r\n\r\nTần số hoạt động\t16 MHz\r\n\r\nDòng tiêu thụ\tkhoảng 30mA\r\n\r\nĐiện áp vào khuyên dùng\t7-12V DC\r\n\r\nĐiện áp vào giới hạn\t6-20V DC\r\n\r\nSố chân Digital I/O\t14 (6 chân hardware PWM)\r\n\r\nSố chân Analog\t6 (độ phân giải 10bit)\r\n\r\nDòng tối đa trên mỗi chân I/O\t30 mA\r\n\r\nDòng ra tối đa (5V)\t500 mA\r\n\r\nDòng ra tối đa (3.3V)\t50 mA\r\n\r\nBộ nhớ flash\t32 KB (ATmega328) với 0.5KB dùng bởi bootloader\r\n\r\nSRAM\t2 KB (ATmega328)\r\n\r\nEEPROM\t1 KB (ATmega328)\r\n\r\nDùng cáp Dây USB A Đực - USB B",
+  "price": 176000,
+  "sale": 5,
+  "isDeleted": true,
+  "salePrice": 167200,
+  "photo": "1755228037260_vn-11134258-7ras8-mda2w2r1xp5ofb.webp",
+  "__v": 0,
+  "sale1": 5
+},
+{
+  "_id": {
+    "$oid": "689ea85904e5369ad85399b5"
+  },
+  "id": 128,
+  "name": "Bộ dụng cụ khởi động cơ bản cho Arduino UNO R3 gồm bảng mạch/ dây jumper/ đèn LED diode/ mô đun tránh chướng ngại vật",
+  "urlRewriteName": "bo-dung-cu-khoi-dong-co-ban-cho-arduino-uno-r3-gom-bang-mach/-day-jumper/-den-led-diode/-mo-dun-tranh-chuong-ngai-vat",
+  "categoryId": 17,
+  "description": "Thời gian giao hàng dự kiến cho sản phẩm này là từ 7-9 ngày\r\n\r\n\r\n\r\nGói hàng bao gồm: \r\n\r\n1 Mô-đun cung cấp điện\r\n\r\n CẢNH BÁO: Xin vui lòng. không sử dụng điện áp cao hơn 9V\r\n\r\n1 Bảng mạch điểm nối 830\r\n\r\n1 Dây cáp Jumper 65\r\n\r\n140 Dây cáp Jumper không hàn\r\n\r\n20 Dây Dupont từ ổ cắm sang phích cắm \r\n\r\n2 Đầu ghim (40 chân)\r\n\r\n1 Chiết áp chính xác\r\n\r\n2 Điện trở quang\r\n\r\n1 Nhiệt điện trở\r\n\r\n5 Bộ chỉnh lưu Diode (1N4007)\r\n\r\n5 Bóng bán dẫn NPN (PN2222)\r\n\r\n1 IC 4N35\r\n\r\n1 IC 74HC595\r\n\r\n1 Bộ rung hoạt động\r\n\r\n1 Buzzer thụ động\r\n\r\n10 Nút (nhỏ)",
+  "price": 303250,
+  "sale": 5,
+  "isDeleted": true,
+  "salePrice": 288087.5,
+  "photo": "1755228249063_vn-11134258-7ras8-mda2w2r1xp5ofb (1).png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea89b04e5369ad85399b6"
+  },
+  "id": 129,
+  "name": "KIT Arduino Uno R3 Atmega 328P Chíp Cắm Có Kèm Dây Cáp",
+  "urlRewriteName": "kit-arduino-uno-r3-atmega-328p-chip-cam-co-kem-day-cap",
+  "categoryId": 17,
+  "description": "Thời gian giao hàng dự kiến cho sản phẩm này là từ 7-9 ngày\r\n\r\n\r\n\r\nGói hàng bao gồm: \r\n\r\n1 Mô-đun cung cấp điện\r\n\r\n CẢNH BÁO: Xin vui lòng. không sử dụng điện áp cao hơn 9V\r\n\r\n1 Bảng mạch điểm nối 830\r\n\r\n1 Dây cáp Jumper 65\r\n\r\n140 Dây cáp Jumper không hàn\r\n\r\n20 Dây Dupont từ ổ cắm sang phích cắm \r\n\r\n2 Đầu ghim (40 chân)\r\n\r\n1 Chiết áp chính xác\r\n\r\n2 Điện trở quang\r\n\r\n1 Nhiệt điện trở\r\n\r\n5 Bộ chỉnh lưu Diode (1N4007)\r\n\r\n5 Bóng bán dẫn NPN (PN2222)\r\n\r\n1 IC 4N35\r\n\r\n1 IC 74HC595\r\n\r\n1 Bộ rung hoạt động\r\n\r\n1 Buzzer thụ động\r\n\r\n10 Nút (nhỏ)",
+  "price": 150000,
+  "sale": 10,
+  "isDeleted": false,
+  "salePrice": 135000,
+  "photo": "1755228315909_sg-11134201-7rffq-m9v3fn4m4spo1a.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea90a04e5369ad85399b7"
+  },
+  "id": 130,
+  "name": "Bộ dụng cụ khởi động cơ bản cho Arduino UNO R3 gồm bảng mạch/ dây jumper/ đèn LED diode/ mô đun tránh chướng ngại vật",
+  "urlRewriteName": "bo-dung-cu-khoi-dong-co-ban-cho-arduino-uno-r3-gom-bang-mach/-day-jumper/-den-led-diode/-mo-dun-tranh-chuong-ngai-vat",
+  "categoryId": 17,
+  "description": "Gói hàng bao gồm: \r\n\r\n1 Mô-đun cung cấp điện\r\n\r\n CẢNH BÁO: Xin vui lòng. không sử dụng điện áp cao hơn 9V\r\n\r\n1 Bảng mạch điểm nối 830\r\n\r\n1 Dây cáp Jumper 65\r\n\r\n140 Dây cáp Jumper không hàn\r\n\r\n20 Dây Dupont từ ổ cắm sang phích cắm \r\n\r\n2 Đầu ghim (40 chân)\r\n\r\n1 Chiết áp chính xác\r\n\r\n2 Điện trở quang\r\n\r\n1 Nhiệt điện trở\r\n\r\n5 Bộ chỉnh lưu Diode (1N4007)\r\n\r\n5 Bóng bán dẫn NPN (PN2222)\r\n\r\n1 IC 4N35\r\n\r\n1 IC 74HC595\r\n\r\n1 Bộ rung hoạt động\r\n\r\n1 Buzzer thụ động\r\n\r\n10 Nút (nhỏ)\r\n\r\n10 Tụ gốm 22pf \r\n\r\n10 Tụ gốm 104\r\n\r\n5 Tụ điện (10UF 50V)\r\n\r\n5 Tụ điện (100UF 50V)\r\n\r\n10 LED trắng\r\n\r\n10 LED vàng\r\n\r\n10 LED màu xanh lam\r\n\r\n10 LED xanh lục\r\n\r\n10 LED đỏ\r\n\r\n1 Đèn LED RGB\r\n\r\n10 Điện trở (10R)",
+  "price": 303050,
+  "sale": 30,
+  "isDeleted": true,
+  "salePrice": 212135,
+  "photo": "1755228426046_vn-11134258-7ras8-mda2w2r1xp5ofb (2).webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ea9ca04e5369ad85399b8"
+  },
+  "id": 131,
+  "name": "Arduino R3 Có Hộp Breadboard DIY Kit",
+  "urlRewriteName": "arduino-r3-co-hop-breadboard-diy-kit",
+  "categoryId": 17,
+  "description": "Kích thước: 20 * 10 * 5cm\r\n\r\nKích thước bao bì: 20 * 10 * 5cm\r\n\r\nMàu sắc: Đầy màu sắc\r\n\r\nChất liệu: Nhựa + Kim loại + Nhựa\r\n\r\nPhương pháp đóng gói: hộp giấy\r\n\r\nMô tả:\r\n\r\n1. Tất cả các thành phần được đóng gói trong hộp nhựa trong suốt với các ngăn độc lập để dễ dàng sử dụng và bảo quản.\r\n\r\nĐược trang bị hơn 400 cảm biến và thành phần, nó có thể được sử dụng cho các dự án điện tử vui nhộn và đơn giản\r\n\r\n3. Vật liệu chất lượng cao, chắc chắn và bền\r\n\r\n",
+  "price": 266464,
+  "sale": 10,
+  "isDeleted": false,
+  "salePrice": 239817.6,
+  "photo": "1755228618972_sg-11134201-7rfgv-m3kc3iml889xc5@resize_w900_nl.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eaadb04e5369ad85399b9"
+  },
+  "id": 132,
+  "name": "Arduino Uno R3 + RFID + IoT (Full) ",
+  "urlRewriteName": "arduino-uno-r3-+-rfid-+-iot-(full)-",
+  "categoryId": 17,
+  "description": "Arduino UNO R3 (SMD)\r\n\r\n- Module relay 1 kênh\r\n\r\n- Module RFID RC522 + thẻ RFID + móc khóa RFID\r\n\r\n- Module bàn phím 4x4\r\n\r\n- Module LCD IIC Arduino\r\n\r\n- Module cảm biến nhiệt độ, độ ẩm DHT11\r\n\r\n- ServoSG90 - SL: 1\r\n\r\n- Module biến trở Gamepad PS2 analog\r\n\r\n- Module cảm biến mưa\r\n\r\n- Module cảm biến âm thanh KY-037\r\n\r\n- Module thời gian thực DS1302\r\n\r\n- Màn hình LCD1602 - SL: 1\r\n\r\n- Board test MB-102 - SL: 1\r\n\r\n- Đèn LED đỏ, vàng, xanh - SL : Mỗi loại 5 con",
+  "price": 495000,
+  "sale": 30,
+  "isDeleted": true,
+  "salePrice": 346500,
+  "photo": "1755228891013_vn-11134258-7ras8-mda2w2r1xp5ofb (4).png",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eab6e04e5369ad85399ba"
+  },
+  "id": 133,
+  "name": "Bộ MakerEdu Starter Kit for Arduino",
+  "urlRewriteName": "bo-makeredu-starter-kit-for-arduino",
+  "categoryId": 17,
+  "description": "Bộ MakerEdu Starter Kit for Arduino giúp bạn tiếp cận với Arduino bằng các phần cứng Robotics của MakerEdu một cách dễ dàng và đơn giản nhất có thể, bỏ đi nỗi lo về các bộ phần cứng với dây cắm chằng chịt phức tạp, chập cháy, cắm sai, tất cả phần cứng của MakerEdu đều được quy chuẩn hoá với chuẩn kết nối dễ dàng chỉ cắm và chạy (plug n Play), phù hợp với mọi đối tượng chuyên hoặc không chuyên về điện tử, học sinh cũng như sinh viên đều có thể tiếp cận với các phần cứng của MakerEdu để có thể bước vào việc lập trình Arduino một cách nhanh nhất.",
+  "price": 675000,
+  "sale": 25,
+  "isDeleted": false,
+  "salePrice": 506250,
+  "photo": "1755229038563_2e27cb6f-3f4c-443d-a1b5-af259823d389-1-201-a-e4f1dca67077476399f54556d9da65c6.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eb8e004e5369ad85399bc"
+  },
+  "id": 134,
+  "name": "Mạch MakerEdu Creator (Arduino Uno Compatible)",
+  "urlRewriteName": "mach-makeredu-creator-(arduino-uno-compatible)",
+  "categoryId": 18,
+  "description": "MakerEdu Creator mà mạch điều khiển trung tâm trong hệ sinh thái phần cứng Robotics MakerEdu với 3 chức năng chính:\r\n\r\nChức năng lưu trữ và thực thi các lệnh lập trình qua Khối Vi Điều Khiển (Microcontroller Unit).\r\nChức năng cấp nguồn, giao tiếp và điều khiển các mạch module chức năng (MakerEdu Module), cảm biến (MakerEdu Sensor) qua các cổng kết nối chuẩn XH2.54.\r\nChức năng điều khiển 2 Động cơ DC, 2 Động cơ RC Servo qua Khối Công Suất (Power Unit).",
+  "price": 265000,
+  "sale": 20,
+  "isDeleted": false,
+  "salePrice": 212000,
+  "photo": "1755232480242_makeredu-creator-front-and-back-2-ff1e37e6ea30468a9b2dc61f2df41fe4-a5166cc5-88ec-41eb-b738-20728ef09421-3d4781a4-7e39-4198-9e4f-5407ebd2c74b.webp",
+  "__v": 0,
+  "sale1": 20
+},
+{
+  "_id": {
+    "$oid": "689eb96c04e5369ad85399bd"
+  },
+  "id": 135,
+  "name": "Bộ RoverBot - Smart Car Robot Kit",
+  "urlRewriteName": "bo-roverbot---smart-car-robot-kit",
+  "categoryId": 19,
+  "description": "RoverBot là mẫu robot bánh xích thông minh được thiết kế cho những ai đam mê công nghệ, robotics và học tập STEM. Với thiết kế mạnh mẽ, linh hoạt nhờ hệ thống bánh xích cao su, cùng động cơ bánh răng kim loại giảm tốc 1:90 giúp tăng mô-men xoắn và độ bền vượt trội, RoverBot sẵn sàng chinh phục mọi địa hình từ mặt bàn, sàn nhà đến bề mặt gồ ghề nhẹ.",
+  "price": 1450000,
+  "sale": 10,
+  "isDeleted": false,
+  "salePrice": 1305000,
+  "photo": "1755232620473_roverbotkit.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eb9fe04e5369ad85399be"
+  },
+  "id": 136,
+  "name": "Bộ MakerEdu Starter Kit for Arduino",
+  "urlRewriteName": "bo-makeredu-starter-kit-for-arduino",
+  "categoryId": 18,
+  "description": "Bộ MakerEdu Starter Kit for Arduino giúp bạn tiếp cận với Arduino bằng các phần cứng Robotics của MakerEdu một cách dễ dàng và đơn giản nhất có thể, bỏ đi nỗi lo về các bộ phần cứng với dây cắm chằng chịt phức tạp, chập cháy, cắm sai, tất cả phần cứng của MakerEdu đều được quy chuẩn hoá với chuẩn kết nối dễ dàng chỉ cắm và chạy (plug n Play), phù hợp với mọi đối tượng chuyên hoặc không chuyên về điện tử, học sinh cũng như sinh viên đều có thể tiếp cận với các phần cứng của MakerEdu để có thể bước vào việc lập trình Arduino một cách nhanh nhất.",
+  "price": 675000,
+  "sale": 5,
+  "isDeleted": false,
+  "salePrice": 641250,
+  "photo": "1755232766745_2e27cb6f-3f4c-443d-a1b5-af259823d389-1-201-a-ae3741cb63e34891b4cb98a495850491-ee9f3d4e-e320-4411-b92e-de218cb96a29-0a3f1231-4d5f-445d-803f-6e2b93ed02b0-50899268-6a45-4a9a-aab3-d1e846e0aa09.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689eba4c04e5369ad85399bf"
+  },
+  "id": 137,
+  "name": "Bộ Advance Kit for Arduino",
+  "urlRewriteName": "bo-advance-kit-for-arduino",
+  "categoryId": 18,
+  "description": "ộ Advance Kit for Arduino bao gồm Mạch Uno hoặc Vietduino Uno (tương thích với Arduino Uno) và các thành phần Linh kiện điện tử, Module, Cảm biến nâng cao giúp bạn dễ dàng làm quen với các chuẩn giao tiếp: SPI (Mạch RFID RC522), I2C (Mạch thời gian thực DS1302),  1 Wire (Cảm biến độ ẩm nhiệt độ DHT11),...",
+  "price": 584999,
+  "sale": 20,
+  "isDeleted": false,
+  "salePrice": 467999.2,
+  "photo": "1755232844334_Bộ Advance Kit for Arduino.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebad104e5369ad85399c0"
+  },
+  "id": 138,
+  "name": "RaspRover Open-source 4WD AI Robot ",
+  "urlRewriteName": "rasprover-open-source-4wd-ai-robot-",
+  "categoryId": 19,
+  "description": "The RaspRover is an AI robot designed for exploration and creation, seamlessly connecting your imagination with reality. Suitable for tech enthusiasts, makers, or beginners in programming, it is your ideal choice for exploring the world of intelligent technology.\r\n\r\nEquipped with the high-performance Raspberry Pi computer to meet the challenges of complex strategies and functions, and inspire your creativity. Adopts dual-controller design, combines the high-level AI functions of the host controller with the high-frequency basic operations of the sub controller, making every operation accurate and smooth.",
+  "price": 7128000,
+  "sale": 15,
+  "isDeleted": false,
+  "salePrice": 6058800,
+  "photo": "1755232977841_RaspRover Open-source 4WD AI Robot for Raspberry Pi 5.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebb5b04e5369ad85399c1"
+  },
+  "id": 139,
+  "name": "Bộ kit DFRobot micro:Maqueen Plus V2",
+  "urlRewriteName": "bo-kit-dfrobot-micro:maqueen-plus-v2",
+  "categoryId": 19,
+  "description": " Bộ kit DFRobot micro:Maqueen Plus V2 (NiMH Rechargeable Battery) - an Advanced STEM Education Robot for micro:bit được sử dụng rất phổ biến với mạch Micro:bit để dạy về STEM và lập trình robot cho trẻ em, bộ kit rất dễ sử dụng với chỉ một vài thao tác lắp đặt đơn giản là robot Maqueen đã có thể hoạt động với nhiều chức năng: cảm biến siêu âm tránh vật cản, điều khiển qua hồng ngoại, xe dò line, còi báo động và đèn,...(tham khảo các dự án tại đây), bộ kit đi kèm với bộ tài liệu và hướng dẫn đầy đủ trên hai nền tảng lập trình thông dụng cho Micro:bit là Mind+ và MakeCode.",
+  "price": 1620000,
+  "sale": 5,
+  "isDeleted": false,
+  "salePrice": 1539000,
+  "photo": "1755233115741_kit DFRobot microMaqueen Plus V2.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebb9e04e5369ad85399c2"
+  },
+  "id": 140,
+  "name": "JetBot AI Kit, AI Robot Based on Jetson Nano",
+  "urlRewriteName": "jetbot-ai-kit,-ai-robot-based-on-jetson-nano",
+  "categoryId": 19,
+  "description": "JetBot AI Kit, AI Robot Based on Jetson Nano là phiên bản robot được chính NVIDIA khuyến nghị sử dụng để nghiên cứu các ứng dụng robot AI tự hành trên Jetson Nano, robot được nghiên cứu và sản xuất bởi Waveshare với phần bo mạch bổ trợ thiết kế chuyên biệt với cảm biến, quản lý và sạc pin, mạch điều khiển động cơ,...tích hợp sẵn giúp bạn có thể dễ dàng lắp đặt và sử dụng dễ dàng với chỉ 1 vài bước thao tác đơn giản.",
+  "price": 2538000,
+  "sale": 5,
+  "isDeleted": false,
+  "salePrice": 2411100,
+  "photo": "1755233182905_JetBot AI Kit, AI Robot Based on Jetson Nano.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebbf304e5369ad85399c3"
+  },
+  "id": 141,
+  "name": "Bộ STEM / Robotics Kit máy chào khách DIY CiaoBot ",
+  "urlRewriteName": "bo-stem-/-robotics-kit-may-chao-khach-diy-ciaobot-",
+  "categoryId": 18,
+  "description": "Bộ STEM / Robotics Kit máy chào khách DIY CiaoBot - Greeting Machine là một sản phẩm của Makerlab giúp bạn tự DIY một chiếc máy chào khách với những ưu điểm vượt trội so với hầu hết các loại máy chào khách chỉ kêu \"kính cong\" đơn điệu trên thị trường.",
+  "price": 870000,
+  "sale": 3,
+  "isDeleted": false,
+  "salePrice": 843900,
+  "photo": "1755233267949_Bộ STEM  Robotics Kit máy chào khách DIY CiaoBot.webp",
+  "__v": 0,
+  "sale1": 3
+},
+{
+  "_id": {
+    "$oid": "689ebc9304e5369ad85399c4"
+  },
+  "id": 142,
+  "name": "Cảm biến dò đường 5 mắt MKE-S16 I2C ",
+  "urlRewriteName": "cam-bien-do-duong-5-mat-mke-s16-i2c-",
+  "categoryId": 16,
+  "description": "Cảm biến dò đường MKE-S16 I2C Line Follower Sensor sử dụng 5 cảm biến CNY70 bao gồm 1 mắt phát và 1 mắt thu hồng ngoại, cảm biến dựa vào độ phản xạ của tia hồng ngoại theo màu sắc của vật thể ở gần để xác định 2 màu có độ tương phản cao (thường là trắng và đen), ứng dụng trong các mô hình xe dò đường (dò line), cảm biến trả ra giá trị thông qua việc gửi tín hiệu giao tiếp theo chuẩn I2C, ngoài ra cảm biến còn được bổ sung các thiết kế ổn định, chống nhiễu.",
+  "price": 195000,
+  "sale": 5,
+  "isDeleted": false,
+  "salePrice": 185250,
+  "photo": "1755233427810_Cảm biến dò đường 5 mắt MKE-S16 I2C Line Follower Sensor.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebcf204e5369ad85399c5"
+  },
+  "id": 143,
+  "name": "Giá đỡ Camera Raspberry Pi Holder V1 / V2 / V3",
+  "urlRewriteName": "gia-do-camera-raspberry-pi-holder-v1-/-v2-/-v3",
+  "categoryId": 16,
+  "description": "Giá đỡ Camera Raspberry Pi Holder V1 / V2 / V3 được sử dụng để bảo vệ cho Module Camera của Raspberry Pi vốn là thiết bị rất nhạy cảm với tĩnh điện (thường hư hỏng nếu chạm tay vào khi đang cấp nguồn) khỏi các hư hỏng không đáng có cũng như các tác động vật lý. Giá đỡ tương thích với các loại Module Camera phiên bản V1, V2 và V3 của Raspberry Pi.",
+  "price": 54000,
+  "sale": 5,
+  "isDeleted": false,
+  "salePrice": 51300,
+  "photo": "1755233522981_Giá đỡ Camera Raspberry Pi Holder V3.webp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebd2b04e5369ad85399c6"
+  },
+  "id": 144,
+  "name": "Pin dự phòng USB-C 5VDC 2A 5000mAh ",
+  "urlRewriteName": "pin-du-phong-usb-c-5vdc-2a-5000mah-",
+  "categoryId": 16,
+  "description": "Pin dự phòng USB-C 5VDC 2A 5000mAh Mini Power Bank được sử dụng để cấp nguồn cho các loại Robot hoặc các bo mạch sử dụng 5VDC, pin có kích thước rất nhỏ gọn với dung lượng lên đến 5000mAh.\r\n\r\nThông số kỹ thuật:\r\n\r\nCapacity: 5000mAh 18.5Wh.\r\nInput: USB-C 5V / 2A.\r\nOutput: USB-A 5V / 2A.\r\nIndicator: LED indicator.\r\nMaterial: ABS + PC flame retardant shell + 22650 battery.\r\nColor: Black\r\nUSB-C to USB-A cable included\r\nSizes: 81*62*25mm\r\nWeight: 170g",
+  "price": 135000,
+  "sale": 10,
+  "isDeleted": false,
+  "salePrice": 121500,
+  "photo": "1755233579849_Pin dự phòng USB-C 5VDC 2A 5000mAh Mini Power Bank.webp",
+  "__v": 0,
+  "sale1": 10
+},
+{
+  "_id": {
+    "$oid": "689ebdc304e5369ad85399c7"
+  },
+  "id": 145,
+  "name": "Bộ kit linh kiện điện tử cơ bản 1 (Basic Electronic Parts Kit 1)",
+  "urlRewriteName": "bo-kit-linh-kien-dien-tu-co-ban-1-(basic-electronic-parts-kit-1)",
+  "categoryId": 16,
+  "description": "Bộ kit linh kiện điện tử cơ bản 1 (Basic Electronic Parts Kit 1) bao gồm các loại Led, điện trở, biến trở, nút nhấn, rào cắm thông dụng giúp bạn dễ dàng thực hiện các thí nghiệm trên Breadboard với các module, vi điều khiển, cảm biến,...",
+  "price": 40000,
+  "sale": 1,
+  "isDeleted": false,
+  "salePrice": 39600,
+  "photo": "1755233731035_Bộ kit linh kiện điện tử cơ bản 1 (Basic Electronic Parts Kit 1).webp",
+  "__v": 0
+}]

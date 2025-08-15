@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "6763aa2a85dae216f072b34b"
+  },
+  "id": 57,
+  "name": "Bảo Khôi",
+  "email": "khoibao937@gmail.com",
+  "phone": "0845503595",
+  "msg": "12346",
+  "total": 20691000,
+  "status": 1,
+  "ship": "ĐHQG",
+  "payment": "TM",
+  "isDeleted": false,
+  "details": [
+    {
+      "price": 20691000,
+      "quantity": 1,
+      "item": {
+        "__v": 0,
+        "photo": "1734542523762_samsung-galaxy-s24_7_.webp",
+        "salePrice": 20691000,
+        "isDeleted": false,
+        "sale": 10,
+        "price": 22990000,
+        "description": "Đặc điểm nổi bật của Samsung Galaxy S24 8GB 256GB:\r\nKhai phá tiềm năng sáng tạo không giới hạn với tính năng AI - Phiên dịch cuộc gọi, trợ lí chỉnh ảnh\r\nSắc nét từng chi tiết - Camera 50MP với với công nghệ ProVisual, chụp đêm và siêu thu phóng\r\nPin tối ưu thông minh cho cả ngày tràn đầy năng lượng - Viên pin 4000mAh cho phép bạn xem video liên tục đến 29 giờ\r\nNâng cấp màn hình trải nghiệm tuyệt đỉnh - Màn hình 6.2\" inch Dynamic AMOLED 2X cùng tần số quét 120Hz",
+        "categoryId": 16,
+        "urlRewriteName": "samsung-galaxy-s24-8gb-256gb",
+        "name": "Samsung Galaxy S24 8GB 256GB",
+        "id": 126,
+        "_id": "676304bb6b0f34227c0234c6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689e909004e5369ad85399b1"
+  },
+  "id": 53,
+  "name": "Bao Khoi",
+  "email": "khoi@gmail.com",
+  "phone": "123456789",
+  "msg": "Giao vao ngày mai",
+  "total": 20691000,
+  "status": 1,
+  "ship": "UIT",
+  "payment": "TM",
+  "isDeleted": false,
+  "details": [
+    {
+      "price": 20691000,
+      "quantity": 1,
+      "item": {
+        "__v": 0,
+        "photo": "1734542523762_samsung-galaxy-s24_7_.webp",
+        "salePrice": 20691000,
+        "isDeleted": false,
+        "sale": 10,
+        "price": 22990000,
+        "description": "Đặc điểm nổi bật của Samsung Galaxy S24 8GB 256GB:\r\nKhai phá tiềm năng sáng tạo không giới hạn với tính năng AI - Phiên dịch cuộc gọi, trợ lí chỉnh ảnh\r\nSắc nét từng chi tiết - Camera 50MP với với công nghệ ProVisual, chụp đêm và siêu thu phóng\r\nPin tối ưu thông minh cho cả ngày tràn đầy năng lượng - Viên pin 4000mAh cho phép bạn xem video liên tục đến 29 giờ\r\nNâng cấp màn hình trải nghiệm tuyệt đỉnh - Màn hình 6.2\" inch Dynamic AMOLED 2X cùng tần số quét 120Hz",
+        "categoryId": 16,
+        "urlRewriteName": "samsung-galaxy-s24-8gb-256gb",
+        "name": "Samsung Galaxy S24 8GB 256GB",
+        "id": 126,
+        "_id": "676304bb6b0f34227c0234c6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "689ebefd04e5369ad85399c8"
+  },
+  "id": 54,
+  "name": "Bkhoi1",
+  "email": "khoibao655@gmail.com",
+  "phone": "0845503595",
+  "msg": "Giao hang nhanh",
+  "total": 1539000,
+  "status": 1,
+  "ship": "ĐHQG",
+  "payment": "TM",
+  "isDeleted": false,
+  "details": [
+    {
+      "price": 1539000,
+      "quantity": 1,
+      "item": {
+        "__v": 0,
+        "photo": "1755233115741_kit DFRobot microMaqueen Plus V2.webp",
+        "salePrice": 1539000,
+        "isDeleted": false,
+        "sale": 5,
+        "price": 1620000,
+        "description": " Bộ kit DFRobot micro:Maqueen Plus V2 (NiMH Rechargeable Battery) - an Advanced STEM Education Robot for micro:bit được sử dụng rất phổ biến với mạch Micro:bit để dạy về STEM và lập trình robot cho trẻ em, bộ kit rất dễ sử dụng với chỉ một vài thao tác lắp đặt đơn giản là robot Maqueen đã có thể hoạt động với nhiều chức năng: cảm biến siêu âm tránh vật cản, điều khiển qua hồng ngoại, xe dò line, còi báo động và đèn,...(tham khảo các dự án tại đây), bộ kit đi kèm với bộ tài liệu và hướng dẫn đầy đủ trên hai nền tảng lập trình thông dụng cho Micro:bit là Mind+ và MakeCode.",
+        "categoryId": 19,
+        "urlRewriteName": "bo-kit-dfrobot-micro:maqueen-plus-v2",
+        "name": "Bộ kit DFRobot micro:Maqueen Plus V2",
+        "id": 139,
+        "_id": "689ebb5b04e5369ad85399c1"
+      }
+    }
+  ],
+  "__v": 0
+}]
