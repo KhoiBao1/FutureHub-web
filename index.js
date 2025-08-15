@@ -77,26 +77,6 @@ mongoose.connect(config.database.connection, config.database.option)
     require('./modules/auto-increment').init(connection);
 
     // --- Routes ---
-    const CategoryModel = require('./models/category');
-    const ProductModel = require('./models/product');
-
-    // Route chính cho trang chủ
-    app.get('/', async (req, res) => {
-      try {
-        const categories = await CategoryModel.find({ isDeleted: false }).lean();
-        const products = await ProductModel.find({ isDeleted: false }).lean();
-        res.render('site/index', { 
-          categories, 
-          products, 
-          isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false 
-        });
-      } catch (err) {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
-      }
-    });
-
-    // Các route khác
     app.use('/', require('./routes/index'));
     app.use('/', require('./routes/user'));
     app.use('/admin', require('./routes/admin'));
