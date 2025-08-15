@@ -7,7 +7,14 @@ global.isObject = (obj) => {
   return false;
 };
 
+// --- Import config 1 lần duy nhất ---
 const config = require('./config');
+
+// --- Log để debug ---
+console.log('Config loaded:', config);
+console.log('MongoDB URI:', config.database.connection || process.env.MONGODB_URI);
+console.log('PORT:', config.app?.port || process.env.PORT);
+
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -18,11 +25,6 @@ const logger = require('morgan');
 const passport = require('passport');
 const path = require('path');
 const session = require('express-session');
-
-// --- Log để debug ---
-console.log('Config loaded:', config);
-console.log('PORT:', process.env.PORT);
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
 // --- Kết nối MongoDB ---
 mongoose.Promise = global.Promise;
