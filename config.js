@@ -1,12 +1,12 @@
+require('dotenv').config();
+
 module.exports = {
   app: {
-    port: 3000
+    port: process.env.PORT || 3000
   },
   database: {
-    connection: process.env.MONGODB_URI || 'mongodb://localhost:27017/shopping',
-
+    connection: process.env.MONGODB_CONNECT_URI,
     option: {
-      useMongoClient: true,
       autoIndex: false
     }
   },
