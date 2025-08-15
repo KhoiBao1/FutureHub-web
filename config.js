@@ -1,4 +1,3 @@
-// config.js
 require('dotenv').config();
 
 module.exports = {
@@ -8,5 +7,8 @@ module.exports = {
       useNewUrlParser: true,
       useUnifiedTopology: true
     }
+  },
+  session: {
+    key: process.env.SESSION_SECRET || 'mySecretKey'
   }
 };
