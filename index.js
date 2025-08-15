@@ -24,20 +24,6 @@ const passport = require('passport');
 const path = require('path');
 const session = require('express-session');
 
-// --- Kết nối MongoDB ---
-mongoose.Promise = global.Promise;
-mongoose.connect(config.database.connection, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('MongoDB connected!');
-  // Init auto-increment sau khi kết nối thành công
-  const connection = mongoose.connection;
-  require('./modules/auto-increment').init(connection);
-}).catch(err => {
-  console.error('MongoDB connection error:', err);
-});
-
 // --- Khởi tạo Express ---
 const app = express();
 
@@ -82,14 +68,28 @@ app.use((req, res, next) => {
   next();
 });
 
-// --- Routes ---
-app.use('/', require('./routes/index'));
-app.use('/', require('./routes/user'));
-app.use('/admin', require('./routes/admin'));
-app.use('/admin/category', require('./routes/admin-category'));
-app.use('/admin/order', require('./routes/admin-order'));
-app.use('/admin/product', require('./routes/admin-product'));
-app.use('/admin/user', require('./routes/admin-user'));
+// --- Kết nối MongoDB và init auto-increment ---
+mongoose.Promise = global.Promise;
+mongoose.connect(config.database.connection, config.database.option)
+  .then(() => {
+    console.log('MongoDB connected!');
+
+    // Init auto-increment
+    const connection = mongoose.connection;
+    require('./modules/auto-increment').init(connection);
+
+    // --- Require routes SAU khi init xong ---
+    app.use('/', require('./routes/index'));
+    app.use('/', require('./routes/user'));
+    app.use('/admin', require('./routes/admin'));
+    app.use('/admin/category', require('./routes/admin-category'));
+    app.use('/admin/order', require('./routes/admin-order'));
+    app.use('/admin/product', require('./routes/admin-product'));
+    app.use('/admin/user', require('./routes/admin-user'));
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+  });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -123,4 +123,3 @@ server.on('error', (error) => {
 server.on('listening', () => {
   console.log(`Server is listening on port ${port}`);
 });
-
