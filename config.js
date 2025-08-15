@@ -10,5 +10,8 @@ module.exports = {
   },
   session: {
     key: process.env.SESSION_SECRET || 'mySecretKey'
+  },
+  app: {
+    port: process.env.PORT || 8080
   }
 };
