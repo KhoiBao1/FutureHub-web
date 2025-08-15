@@ -3,7 +3,8 @@ module.exports = {
     port: 3000
   },
   database: {
-    connection: 'mongodb://localhost:27017/shopping',
+    connection: process.env.MONGODB_URI || 'mongodb://localhost:27017/shopping',
+
     option: {
       useMongoClient: true,
       autoIndex: false
