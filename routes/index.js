@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
 });
 
 // --- Static pages (huong-dan, security, dangki, Payment) ---
-router.get(['/huong-dan.html', '/security.html', '/register.html', '/Payment.html'], (req, res) => {
+router.get(['/huong-dan.ejs', '/security.ejs', '/register.ejs', '/Payment.ejs'], (req, res) => {
   let page = req.path.replace('.html','').substring(1);
 
   // map route với tên file thực tế
