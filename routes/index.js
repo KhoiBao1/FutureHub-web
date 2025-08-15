@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
     const categories = await CategoryModel.find({ isDeleted: false }).lean();
     const products = await ProductModel.find({ isDeleted: false }).lean();
 
+    // Đếm số lượng sản phẩm theo danh mục
     const productCountByCategory = products.reduce((acc, product) => {
       acc[product.categoryId] = (acc[product.categoryId] || 0) + 1;
       return acc;
@@ -29,7 +30,7 @@ router.get('/', async (req, res) => {
     res.render('site/index', {
       categories,
       products,
-      isAuthenticated: req.isAuthenticated(),
+      isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false,
     });
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -37,17 +38,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// --- Static pages ---
-router.get(['/huong-dan.html', '/security.html', '/dangki.html', '/Payment.html'], (req, res, next) => {
+// --- Static pages (huong-dan, security, dangki, Payment) ---
+router.get(['/huong-dan.html', '/security.html', '/dangki.html', '/Payment.html'], (req, res) => {
   const page = req.path.replace('.html','').substring(1); // lấy tên file ejs
-  res.render(`site/${page}`, { isAuthenticated: req.isAuthenticated() });
+  res.render(`site/${page}`, { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
 
 // --- Category page ---
 router.get('/danh-muc/:name.:id.html', async (req, res) => {
   const categories = await CategoryModel.find({ isDeleted: false }).lean();
   const products = await ProductModel.find({ categoryId: req.params.id, isDeleted: false }).lean();
-  res.render('site/category', { categories, products, isAuthenticated: req.isAuthenticated() });
+  res.render('site/category', { categories, products, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
 
 // --- Product page ---
@@ -55,14 +56,14 @@ router.get('/san-pham/:name.:productId.:categoryId.html', async (req, res) => {
   const data = await ProductModel.findOne({ id: req.params.productId, isDeleted: false }).lean();
   if (!data) return res.redirect('/');
   const products = await ProductModel.find({ categoryId: data.categoryId, isDeleted: false, id: { $ne: data.id } }).limit(10).lean();
-  res.render('site/product', { data, products, isAuthenticated: req.isAuthenticated() });
+  res.render('site/product', { data, products, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
 
 // --- Cart ---
 router.get('/gio-hang.html', async (req, res) => {
   const { cart } = getShoppingCart(req);
   const model = { data: cart.getItemList(), products: await ProductModel.find({ isDeleted: false }).lean() };
-  res.render('site/cart', { ...model, isAuthenticated: req.isAuthenticated() });
+  res.render('site/cart', { ...model, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
 
 router.get('/cart/add/:id', async (req, res) => {
@@ -93,7 +94,7 @@ router.post('/cart/update', (req, res) => {
 router.get('/dat-hang.html', Passport.requireAuth, (req, res) => {
   const { cart } = getShoppingCart(req);
   if (!cart || !cart.items || Object.keys(cart.items).length < 1) return res.redirect('/');
-  res.render('site/checkout', { isAuthenticated: req.isAuthenticated(), errors: null });
+  res.render('site/checkout', { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false, errors: null });
 });
 
 router.post('/dat-hang.html', async (req, res) => {
@@ -128,7 +129,7 @@ router.get('/tim-kiem.html', async (req, res) => {
   if (req.query.keyword) query.name = RegExp(req.query.keyword, 'i');
   const products = await ProductModel.find(query).lean();
   const categories = await CategoryModel.find({ isDeleted: false }).lean();
-  res.render('site/tim-kiem', { products, categories, isAuthenticated: req.isAuthenticated() });
+  res.render('site/tim-kiem', { products, categories, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
 
 // --- Menu API ---
