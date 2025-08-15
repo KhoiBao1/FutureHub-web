@@ -106,8 +106,23 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-module.exports = app;
+
+app.set('port', config.app.port);
+
+/**
+ * Create HTTP server.
+ */
+const server = require('http').createServer(app);
+
+server.listen(config.app.port);
+
+server.on('error', (error) => {
+  console.error(error);
+  console.log(error);
+  throw error;
+});
 
 server.on('listening', () => {
   require('debug')('shopping:server')(`Listening on ${server.address()}:${config.app.port}`);
 });
+
