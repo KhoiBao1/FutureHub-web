@@ -1,9 +1,7 @@
-require('dotenv').config(); // thêm nếu bạn dùng .env (Render không cần nhưng giữ cũng ok)
+require('dotenv').config(); // giữ nếu dùng .env
 
 global.isObject = (obj) => {
-  if (obj.constructor.name === 'Object') {
-    return true;
-  }
+  if (obj.constructor.name === 'Object') return true;
   return false;
 };
 
@@ -28,8 +26,17 @@ const session = require('express-session');
 
 // --- Kết nối MongoDB ---
 mongoose.Promise = global.Promise;
-const connection = mongoose.connect(config.database.connection, config.database.option);
-require('./modules/auto-increment').init(connection);
+mongoose.connect(config.database.connection, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected!');
+  // Init auto-increment sau khi kết nối thành công
+  const connection = mongoose.connection;
+  require('./modules/auto-increment').init(connection);
+}).catch(err => {
+  console.error('MongoDB connection error:', err);
+});
 
 // --- Khởi tạo Express ---
 const app = express();
@@ -85,14 +92,14 @@ app.use('/admin/product', require('./routes/admin-product'));
 app.use('/admin/user', require('./routes/admin-user'));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
@@ -116,3 +123,4 @@ server.on('error', (error) => {
 server.on('listening', () => {
   console.log(`Server is listening on port ${port}`);
 });
+
