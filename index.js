@@ -1,14 +1,12 @@
-require('dotenv').config(); // giữ nếu dùng .env
+require('dotenv').config();
 
 global.isObject = (obj) => {
   if (obj.constructor.name === 'Object') return true;
   return false;
 };
 
-// --- Import config 1 lần duy nhất ---
 const config = require('./config');
 
-// --- Log để debug ---
 console.log('Config loaded:', config);
 console.log('MongoDB URI:', config.database.connection || process.env.MONGODB_URI);
 console.log('PORT:', config.app?.port || process.env.PORT);
@@ -27,11 +25,11 @@ const session = require('express-session');
 // --- Khởi tạo Express ---
 const app = express();
 
-// view engine setup
+// --- View engine setup ---
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Middleware
+// --- Middleware ---
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -68,7 +66,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// --- Kết nối MongoDB và init auto-increment ---
+// --- MongoDB connect ---
 mongoose.Promise = global.Promise;
 mongoose.connect(config.database.connection, config.database.option)
   .then(() => {
@@ -78,7 +76,27 @@ mongoose.connect(config.database.connection, config.database.option)
     const connection = mongoose.connection;
     require('./modules/auto-increment').init(connection);
 
-    // --- Require routes SAU khi init xong ---
+    // --- Routes ---
+    const CategoryModel = require('./models/category');
+    const ProductModel = require('./models/product');
+
+    // Route chính cho trang chủ
+    app.get('/', async (req, res) => {
+      try {
+        const categories = await CategoryModel.find({ isDeleted: false }).lean();
+        const products = await ProductModel.find({ isDeleted: false }).lean();
+        res.render('site/index', { 
+          categories, 
+          products, 
+          isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false 
+        });
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      }
+    });
+
+    // Các route khác
     app.use('/', require('./routes/index'));
     app.use('/', require('./routes/user'));
     app.use('/admin', require('./routes/admin'));
@@ -86,19 +104,20 @@ mongoose.connect(config.database.connection, config.database.option)
     app.use('/admin/order', require('./routes/admin-order'));
     app.use('/admin/product', require('./routes/admin-product'));
     app.use('/admin/user', require('./routes/admin-user'));
+
   })
   .catch(err => {
     console.error('MongoDB connection error:', err);
   });
 
-// catch 404 and forward to error handler
+// --- catch 404 ---
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+// --- error handler ---
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -106,20 +125,11 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-// --- Port fallback an toàn ---
 const port = config?.app?.port || process.env.PORT || 8080;
 app.set('port', port);
 
-// --- Create HTTP server ---
 const server = require('http').createServer(app);
 
 server.listen(port);
-
-server.on('error', (error) => {
-  console.error('Server error:', error);
-  throw error;
-});
-
-server.on('listening', () => {
-  console.log(`Server is listening on port ${port}`);
-});
+server.on('error', (error) => { console.error('Server error:', error); throw error; });
+server.on('listening', () => { console.log(`Server is listening on port ${port}`); });
