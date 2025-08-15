@@ -1,3 +1,6 @@
+require('./config');
+
+
 global.isObject = (obj) => {
   if (obj.constructor.name === 'Object') {
     return true;
