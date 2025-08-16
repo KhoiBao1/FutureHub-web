@@ -79,7 +79,7 @@ mongoose.connect(config.database.connection, config.database.option)
 
     // --- Routes ---
     app.use('/', require('./routes/index'));
-    app.use('/user', require('./routes/user'));
+    app.use('/', require('./routes/user'));
     app.use('/admin', require('./routes/admin'));
     app.use('/admin/category', require('./routes/admin-category'));
     app.use('/admin/order', require('./routes/admin-order'));
