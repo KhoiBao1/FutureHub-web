@@ -8,6 +8,7 @@ const OrderStatus = require('../constants/order-status');
 const Passport = require('../modules/passport');
 const ShoppingCart = require('../modules/shopping-cart');
 
+// --- Shopping cart helper ---
 function getShoppingCart(req) {
   if (req.session.cart) return { hasExisted: true, cart: new ShoppingCart(req.session.cart) };
   return { hasExisted: false, cart: new ShoppingCart({ items: {} }) };
@@ -24,9 +25,9 @@ router.get('/', async (req, res) => {
       acc[product.categoryId] = (acc[product.categoryId] || 0) + 1;
       return acc;
     }, {});
-
     categories.forEach(cat => { cat.counter = productCountByCategory[cat.id] || 0; });
 
+    // Nếu chưa có file index.ejs thì bạn cần tạo
     res.render('site/index', {
       categories,
       products,
@@ -38,22 +39,20 @@ router.get('/', async (req, res) => {
   }
 });
 
-// --- Static pages (huong-dan, security, dangki, Payment) ---
-router.get(['/huong-dan.ejs', '/security.ejs', '/register.ejs', '/Payment.ejs'], (req, res) => {
-  let page = req.path.replace('.html','').substring(1);
+// --- Static pages mapping (fix tên file đúng với views) ---
+const pageMap = {
+  'huong-dan': 'huongdan',
+  'dangki': 'register',
+  'security': 'security',
+  'Payment': 'Payment'
+};
 
-  // map route với tên file thực tế
-  const pageMap = {
-    'huong-dan': 'huongdan',
-    'register': 'register',
-    'security': 'security',
-    'Payment': 'Payment'
-  };
-  if (pageMap[page]) page = pageMap[page];
-
-  res.render(`site/${page}`, { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+router.get(Object.keys(pageMap).map(p => `/${p}.html`), (req, res) => {
+  const pageKey = req.path.replace('.html','').substring(1); 
+  const ejsFile = pageMap[pageKey];
+  if (!ejsFile) return res.status(404).send('Not Found');
+  res.render(`site/${ejsFile}`, { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
 });
-
 
 // --- Category page ---
 router.get('/danh-muc/:name.:id.html', async (req, res) => {
