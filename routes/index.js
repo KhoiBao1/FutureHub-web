@@ -1,115 +1,263 @@
 const router = require('express').Router();
-const moment = require('moment');
 
 const CategoryModel = require('../models/category');
-const ProductModel = require('../models/product');
 const OrderModel = require('../models/order');
 const OrderStatus = require('../constants/order-status');
 const Passport = require('../modules/passport');
+const ProductModel = require('../models/product');
 const ShoppingCart = require('../modules/shopping-cart');
 
-// --- Shopping cart helper ---
+const moment = require('moment');
+
 function getShoppingCart(req) {
-  if (req.session.cart) return { hasExisted: true, cart: new ShoppingCart(req.session.cart) };
-  return { hasExisted: false, cart: new ShoppingCart({ items: {} }) };
+  if (req.session.cart) {
+    return {
+      hasExisted: true,
+      cart: new ShoppingCart(req.session.cart)
+    };
+  }
+
+  return {
+    hasExisted: false,
+    cart: new ShoppingCart(
+      {
+        items: {}
+      }
+    )
+  };
 }
 
-// --- Homepage ---
+/* GET home page. */
+// router.get('/', async (req, res) => {
+//   const model = {
+//     categories: [],
+//     products: []
+//   };
+  
+//   model.categories = await CategoryModel.find(
+//     {
+//       isDeleted: false
+//     }
+//   ).lean();
+
+//   model.products = await ProductModel.find(
+//     {
+//       isDeleted: false
+//     }
+//   ).lean();
+
+//   if (model.categories && model.categories.length > 0 && model.products && model.products.length > 0) {
+//     for (const x of model.categories) {
+//       x.counter = 0;
+
+//       for (const y of model.products) {
+//         if (y.categoryId === x.id) {
+//           x.counter += 1;
+//         }
+//       }
+//     }
+//   }
+
+//   res.render('site/index', { req: req });
+
+//   // res.render('site/index', model);
+// });
+
 router.get('/', async (req, res) => {
   try {
-    const categories = await CategoryModel.find({ isDeleted: false }).lean();
-    const products = await ProductModel.find({ isDeleted: false }).lean();
+    const model = {
+      categories: await CategoryModel.find({ isDeleted: false }).lean(),
+      products: await ProductModel.find({ isDeleted: false }).lean()
+    };
 
-    // Đếm số lượng sản phẩm theo danh mục
-    const productCountByCategory = products.reduce((acc, product) => {
+    // Đếm số lượng sản phẩm cho mỗi danh mục
+    const productCountByCategory = model.products.reduce((acc, product) => {
       acc[product.categoryId] = (acc[product.categoryId] || 0) + 1;
       return acc;
     }, {});
-    categories.forEach(cat => { cat.counter = productCountByCategory[cat.id] || 0; });
 
-    // Nếu chưa có file index.ejs thì bạn cần tạo
-    res.render('site/index', {
-      categories,
-      products,
-      isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false,
+    model.categories.forEach(category => {
+      category.counter = productCountByCategory[category.id] || 0;
     });
+
+    // Đảm bảo truyền đúng model vào view
+    res.render('site/index', { 
+      categories: model.categories,
+      products: model.products ,
+      isAuthenticated: req.isAuthenticated(),
+     });
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).send('Internal Server Error');
   }
 });
 
-// --- Static pages mapping (fix tên file đúng với views) ---
-const pageMap = {
-  'huong-dan': 'huongdan',
-  'dangki': 'register',
-  'security': 'security',
-  'Payment': 'Payment'
-};
 
-router.get(Object.keys(pageMap).map(p => `/${p}.html`), (req, res) => {
-  const pageKey = req.path.replace('.html','').substring(1); 
-  const ejsFile = pageMap[pageKey];
-  if (!ejsFile) return res.status(404).send('Not Found');
-  res.render(`site/${ejsFile}`, { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+router.get('/huong-dan.html', async (req, res) => {
+  res.render('site/huongdan', {
+    isAuthenticated: req.isAuthenticated()
+  });
 });
 
-// --- Category page ---
+router.get('/Payment.html', async (req, res) => {
+  res.render('site/Payment', {
+    isAuthenticated: req.isAuthenticated(),
+  });
+});
+
+
+router.get('/dangki.html', async (req, res) => {
+  res.render('site/dangki',{
+    isAuthenticated: req.isAuthenticated()
+  });  
+});
+
 router.get('/danh-muc/:name.:id.html', async (req, res) => {
-  const categories = await CategoryModel.find({ isDeleted: false }).lean();
-  const products = await ProductModel.find({ categoryId: req.params.id, isDeleted: false }).lean();
-  res.render('site/category', { categories, products, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+  const model = {
+    categories: [],
+    products: []
+  };
+  
+  model.categories = await CategoryModel.find(
+    {
+      isDeleted: false
+    }
+  ).lean();
+
+  model.products = await ProductModel.find(
+    {
+      categoryId: req.params.id,
+      isDeleted: false
+    }
+  ).lean();
+  
+  res.render('site/category', {
+    categories: model.categories,
+    products: model.products ,
+    isAuthenticated: req.isAuthenticated()
+});
 });
 
-// --- Product page ---
 router.get('/san-pham/:name.:productId.:categoryId.html', async (req, res) => {
-  const data = await ProductModel.findOne({ id: req.params.productId, isDeleted: false }).lean();
-  if (!data) return res.redirect('/');
-  const products = await ProductModel.find({ categoryId: data.categoryId, isDeleted: false, id: { $ne: data.id } }).limit(10).lean();
-  res.render('site/product', { data, products, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+  const model = {};
+  
+  model.data = await ProductModel.findOne(
+    {
+      id: req.params.productId,
+      isDeleted: false
+    }
+  ).lean();
+
+  if (!model.data || !model.data.id) {
+    res.redirect('/');
+  }
+  else {
+    model.products = await ProductModel.find(
+      {
+        categoryId: model.data.categoryId,
+        isDeleted: false,
+        id: {
+          $ne: model.data.id
+        }
+      }
+    ).limit(10).lean();
+    
+    res.render('site/product', {
+      data: model.data ,
+      products: model.products ,
+      isAuthenticated: req.isAuthenticated(),
+    });
+  }
 });
 
-// --- Cart ---
 router.get('/gio-hang.html', async (req, res) => {
-  const { cart } = getShoppingCart(req);
-  const model = { data: cart.getItemList(), products: await ProductModel.find({ isDeleted: false }).lean() };
-  res.render('site/cart', { ...model, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+  const { hasExisted, cart} = getShoppingCart(req);
+
+  const model = {
+    data: cart.getItemList()
+  };
+
+  model.products = await ProductModel.find(
+    {
+      isDeleted: false
+    }
+  ).lean();
+  
+  res.render('site/cart',{
+    data: model.data ,
+    products: model.products ,
+    isAuthenticated: req.isAuthenticated()
+  });
 });
 
 router.get('/cart/add/:id', async (req, res) => {
-  const docProduct = await ProductModel.findOne({ id: req.params.id, isDeleted: false }).lean();
-  if (docProduct) {
-    const { cart } = getShoppingCart(req);
+  const docProduct = await ProductModel.findOne(
+    {
+      id: req.params.id,
+      isDeleted: false
+    }
+  ).lean();
+
+  if (docProduct && docProduct.id) {
+    const { response, cart} = getShoppingCart(req);
+
     cart.addItem(docProduct.id, docProduct);
+
     req.session.cart = cart;
   }
+
   res.redirect('/gio-hang.html');
 });
 
-router.post('/cart/delete', (req, res) => {
-  const { hasExisted, cart } = getShoppingCart(req);
-  if (hasExisted) cart.delete(req.body.id);
+router.post('/cart/delete', async (req, res) => {
+  const { hasExisted, cart} = getShoppingCart(req);
+
+  if (hasExisted === true) {
+    cart.delete(req.body.id);
+  }
+
   req.session.cart = cart;
-  res.json({ isSucceed: true });
+
+  res.json({
+    isSucceed: true
+  });
 });
 
-router.post('/cart/update', (req, res) => {
-  const { hasExisted, cart } = getShoppingCart(req);
-  if (hasExisted) cart.updateQuantity(req.body.id, req.body.quantity);
-  req.session.cart = cart;
-  res.json({ isSucceed: true });
+router.post('/cart/update', async (req, res) => {
+  const { hasExisted, cart} = getShoppingCart(req);
+
+  if (hasExisted === true) {
+    cart.updateQuantity(req.body.id, req.body.quantity);
+
+    req.session.cart = cart;
+  }
+
+  res.json({
+    isSucceed: true
+  });
 });
 
-// --- Checkout ---
-router.get('/dat-hang.html', Passport.requireAuth, (req, res) => {
-  const { cart } = getShoppingCart(req);
-  if (!cart || !cart.items || Object.keys(cart.items).length < 1) return res.redirect('/');
-  res.render('site/checkout', { isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false, errors: null });
+router.get('/dat-hang.html', async (req, res, next, isAdmin = true) => {
+  return Passport.requireAuth(req, res, next, false);
+}, (req, res) => {
+  if (!req.session.cart
+      || !req.session.cart.items
+      || !req.session.cart.items.length < 1) {
+    return res.redirect('/');
+  }
+
+  res.render('site/checkout', {
+    isAuthenticated: req.isAuthenticated(),
+    errors: null
+  });
 });
 
 router.post('/dat-hang.html', async (req, res) => {
-  const { hasExisted, cart } = getShoppingCart(req);
-  if (!hasExisted) return res.redirect('/');
+  const { hasExisted, cart} = getShoppingCart(req);
+
+  if (hasExisted === false) {
+    return res.redirect('/');
+  }
 
   const createData = {
     name: req.body.name,
@@ -121,31 +269,79 @@ router.post('/dat-hang.html', async (req, res) => {
     ship: req.body.ship,
     payment: req.body.payment,
     isDeleted: false,
-    userId: req.id,
-    createdAt: moment(),
-    details: cart.getItemList()
+    userId: req.id
   };
 
-  createData.details.forEach(d => { if (d) createData.total += (d.quantity * d.price); });
+  createData.createdAt = moment();
+  createData.details = cart.getItemList();
+
+  for (const detail of createData.details) {
+    if (detail) {
+      createData.total += (detail.quantity * detail.price);
+    }
+  }
+
   await OrderModel.create(createData);
 
-  req.session.cart = { items: {} };
+  req.session.cart = {
+    items: {}
+  };
+
   res.redirect('/');
 });
 
-// --- Search ---
-router.get('/tim-kiem.html', async (req, res) => {
-  const query = { isDeleted: false };
-  if (req.query.keyword) query.name = RegExp(req.query.keyword, 'i');
-  const products = await ProductModel.find(query).lean();
-  const categories = await CategoryModel.find({ isDeleted: false }).lean();
-  res.render('site/tim-kiem', { products, categories, isAuthenticated: req.isAuthenticated ? req.isAuthenticated() : false });
+router.post('/menu', async (req, res) => {
+  const lstCategory = await CategoryModel.find(
+    {
+      isDeleted: false
+    }
+  ).lean();
+
+  if (lstCategory) {
+    res.json(lstCategory);
+  }
 });
 
-// --- Menu API ---
-router.post('/menu', async (req, res) => {
-  const lstCategory = await CategoryModel.find({ isDeleted: false }).lean();
-  res.json(lstCategory || []);
+router.get('/tim-kiem.html', async (req, res) => {
+  const model = {
+    categories: [],
+    products: []
+  };
+
+  const query = {
+    isDeleted: false
+  };
+
+  if (req.query.keyword && req.query.keyword.length > 0) {
+    query.name = RegExp(req.query.keyword, 'i');
+  }
+
+  model.products = await ProductModel.find(query).lean();
+  
+  model.categories = await CategoryModel.find(
+    {
+      isDeleted: false
+    }
+  ).lean();
+  
+  res.render('site/tim-kiem', {
+    categories: model.categories,
+    products: model.products ,
+    isAuthenticated: req.isAuthenticated(),
+  });
 });
+
+router.get('/huong-dan.html', async (req, res) => {
+  res.render('site/huongdan', {
+    isAuthenticated: req.isAuthenticated(),
+  });
+});
+
+router.get('/security.html', async (req, res) => {
+  res.render('site/security',{
+    isAuthenticated: req.isAuthenticated()
+  });
+});
+
 
 module.exports = router;
