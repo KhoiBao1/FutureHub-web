@@ -24,6 +24,9 @@ const session = require('express-session');
 
 const app = express();
 
+// --- Thêm static public ---
+app.use(express.static(path.join(__dirname, 'public')));
+
 // --- View engine setup ---
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
