@@ -22,7 +22,6 @@ const passport = require('passport');
 const path = require('path');
 const session = require('express-session');
 
-// --- Khởi tạo Express ---
 const app = express();
 
 // --- View engine setup ---
@@ -72,38 +71,31 @@ mongoose.connect(config.database.connection, config.database.option)
   .then(() => {
     console.log('MongoDB connected!');
 
-    // Init auto-increment
     const connection = mongoose.connection;
     require('./modules/auto-increment').init(connection);
 
     // --- Routes ---
     app.use('/', require('./routes/index'));
-    app.use('/', require('./routes/user'));
+    app.use('/user', require('./routes/user'));
     app.use('/admin', require('./routes/admin'));
     app.use('/admin/category', require('./routes/admin-category'));
     app.use('/admin/order', require('./routes/admin-order'));
     app.use('/admin/product', require('./routes/admin-product'));
     app.use('/admin/user', require('./routes/admin-user'));
 
+    // Route mặc định (test nhanh)
+    app.get('/', (req, res) => {
+      res.render('index', { title: 'Home Page' });
+    });
+
+    // Fallback cho client (tránh 404 khi deploy frontend SPA)
+    app.get('*', (req, res) => {
+      res.status(404).render('error', { message: 'Trang không tồn tại' });
+    });
   })
   .catch(err => {
     console.error('MongoDB connection error:', err);
   });
-
-// --- catch 404 ---
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// --- error handler ---
-app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.status(err.status || 500);
-  res.render('error');
-});
 
 const port = config?.app?.port || process.env.PORT || 8080;
 app.set('port', port);
