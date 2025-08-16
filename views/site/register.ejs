@@ -83,7 +83,7 @@
     $.ajax(
       {
         type: 'POST',
-        url: 'http://localhost:3000/dang-ky.html',
+        url: '/dang-ky.html',
         data: postData,
         success: function(response){
           $('.alert-danger').empty();
@@ -92,7 +92,7 @@
             
           if (response) {
             if (response.isSucceed === true) {
-              window.location.href = 'http://localhost:3000/dang-ky.html';
+              window.location.href = '/dang-ky.html';
             }
             else if (response.errors) {
               for (var x of response.errors) {
