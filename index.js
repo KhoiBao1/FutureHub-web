@@ -105,6 +105,33 @@ app.set('port', port);
 
 const server = require('http').createServer(app);
 
+// --- Swagger API Docs ---
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'My API Documentation',
+      version: '1.0.0',
+      description: 'API docs cho project của bạn',
+    },
+    servers: [
+      {
+        url: `http://localhost:${port}`, // khi chạy local
+      },
+      {
+        url: `https://${process.env.RENDER_EXTERNAL_HOSTNAME}`, // khi deploy Render
+      }
+    ],
+  },
+  apis: ['./routes/*.js'], // quét comment JSDoc trong folder routes
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 server.listen(port);
 server.on('error', (error) => { console.error('Server error:', error); throw error; });
 server.on('listening', () => { console.log(`Server is listening on port ${port}`); });
