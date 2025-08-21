@@ -105,7 +105,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://<your-app-on-render>.onrender.com', // đổi đúng domain Render của bạn
+        url: 'https://futurehub-web.onrender.com', // đổi đúng domain Render của bạn
       },
     ],
   },
