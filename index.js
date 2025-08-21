@@ -91,6 +91,30 @@ mongoose.connect(config.database.connection, config.database.option)
       res.render('index', { title: 'Home Page' });
     });
 
+// --- Swagger API Docs ---
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'API Documentation',
+      version: '1.0.0',
+      description: 'Danh sách API cho hệ thống',
+    },
+    servers: [
+      {
+        url: 'https://<your-app-on-render>.onrender.com', // đổi đúng domain Render của bạn
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // bạn có thể chỉnh lại path này cho phù hợp
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
     // Fallback cho client (tránh 404 khi deploy frontend SPA)
     app.get('*', (req, res) => {
       res.status(404).render('error', { message: 'Trang không tồn tại' });
@@ -104,33 +128,6 @@ const port = config?.app?.port || process.env.PORT || 8080;
 app.set('port', port);
 
 const server = require('http').createServer(app);
-
-// --- Swagger API Docs ---
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsdoc = require('swagger-jsdoc');
-
-const swaggerOptions = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'My API Documentation',
-      version: '1.0.0',
-      description: 'API docs cho project của bạn',
-    },
-    servers: [
-      {
-        url: `http://localhost:${port}`, // khi chạy local
-      },
-      {
-        url: `https://${process.env.RENDER_EXTERNAL_HOSTNAME}`, // khi deploy Render
-      }
-    ],
-  },
-  apis: ['./routes/*.js'], // quét comment JSDoc trong folder routes
-};
-
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 server.listen(port);
 server.on('error', (error) => { console.error('Server error:', error); throw error; });
