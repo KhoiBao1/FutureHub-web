@@ -5,6 +5,16 @@ const Passport = require('../modules/passport');
 const UserModel = require('../models/user');
 const UserRole = require('../constants/user-role');
 
+/**
+ * @swagger
+ * /dang-nhap.html:
+ *   get:
+ *     summary: Trang đăng nhập
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Hiển thị form đăng nhập
+ */
 router.get('/dang-nhap.html', (req, res) => {
   const model = {
     callbackUrl: '/dang-nhap.html'
@@ -16,7 +26,27 @@ router.get('/dang-nhap.html', (req, res) => {
 
   res.render('site/login', model);
 });
-
+/**
+ * @swagger
+ * /dang-nhap.html:
+ *   post:
+ *     summary: Xử lý đăng nhập
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       302:
+ *         description: Redirect sau khi đăng nhập thành công
+ */
 router.post('/dang-nhap.html', Passport.auth(), (req, res) => {
   let sReturnUrl = undefined;
 
@@ -32,11 +62,31 @@ router.post('/dang-nhap.html', Passport.auth(), (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /dang-xuat.html:
+ *   get:
+ *     summary: Đăng xuất
+ *     tags: [User]
+ *     responses:
+ *       302:
+ *         description: Redirect về trang đăng nhập
+ */
 router.get('/dang-xuat.html', (req, res) => {
   req.logout();
   res.redirect('/dang-nhap.html');
 });
 
+/**
+ * @swagger
+ * /dang-ky.html:
+ *   get:
+ *     summary: Trang đăng ký
+ *     tags: [User]
+ *     responses:
+ *       200:
+ *         description: Hiển thị form đăng ký
+ */
 router.get('/dang-ky.html', (req, res) => {
   res.render('site/register', {
     isAuthenticated: req.isAuthenticated(),
@@ -45,6 +95,31 @@ router.get('/dang-ky.html', (req, res) => {
 });
 
 
+/**
+ * @swagger
+ * /dang-ky.html:
+ *   post:
+ *     summary: Đăng ký người dùng mới
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullname:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               repassword:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Kết quả đăng ký (json)
+ */
 router.post('/dang-ky.html', async (req, res) => {
   const respData = {
     isSucceed: false,
