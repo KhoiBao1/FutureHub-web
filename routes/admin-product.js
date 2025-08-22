@@ -50,6 +50,68 @@ router.get('/them.html', Passport.requireAuth, async (req, res) => {
   res.render('admin/product/create', model);
 });
 
+/**
+ * @swagger
+ * /admin/product/them.html:
+ *   post:
+ *     summary: Thêm sản phẩm mới
+ *     tags: [Admin - Product]
+ *     consumes:
+ *       - multipart/form-data
+ *     parameters:
+ *       - in: formData
+ *         name: id
+ *         type: number
+ *         required: true
+ *         description: ID sản phẩm
+ *       - in: formData
+ *         name: categoryId
+ *         type: number
+ *         required: true
+ *         description: ID danh mục
+ *       - in: formData
+ *         name: name
+ *         type: string
+ *         required: true
+ *         description: Tên sản phẩm
+ *       - in: formData
+ *         name: urlRewriteName
+ *         type: string
+ *         required: false
+ *         description: URL rewrite
+ *       - in: formData
+ *         name: photo
+ *         type: file
+ *         required: false
+ *         description: Ảnh sản phẩm
+ *       - in: formData
+ *         name: description
+ *         type: string
+ *         required: false
+ *       - in: formData
+ *         name: price
+ *         type: number
+ *         required: true
+ *       - in: formData
+ *         name: sale
+ *         type: number
+ *         required: false
+ *       - in: formData
+ *         name: sale1
+ *         type: number
+ *         required: false
+ *       - in: formData
+ *         name: salePrice
+ *         type: number
+ *         required: false
+ *       - in: formData
+ *         name: isDeleted
+ *         type: boolean
+ *         required: false
+ *     responses:
+ *       200:
+ *         description: Thêm sản phẩm thành công
+ */
 router.post('/them.html', Passport.requireAuth, upload.single('hinh'), async (req, res) => {
   const lstCategory = await CategoryModel.find(
     {
@@ -123,6 +185,54 @@ router.get('/sua/:id.html', Passport.requireAuth, async (req, res) => {
   res.render('admin/product/edit', model);
 });
 
+/**
+ * @swagger
+ * /admin/product/sua/{id}.html:
+ *   post:
+ *     summary: Cập nhật sản phẩm
+ *     tags: [Admin - Product]
+ *     consumes:
+ *       - multipart/form-data
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         type: number
+ *         description: ID sản phẩm
+ *       - in: formData
+ *         name: categoryId
+ *         type: number
+ *       - in: formData
+ *         name: name
+ *         type: string
+ *       - in: formData
+ *         name: urlRewriteName
+ *         type: string
+ *       - in: formData
+ *         name: photo
+ *         type: file
+ *       - in: formData
+ *         name: description
+ *         type: string
+ *       - in: formData
+ *         name: price
+ *         type: number
+ *       - in: formData
+ *         name: sale
+ *         type: number
+ *       - in: formData
+ *         name: sale1
+ *         type: number
+ *       - in: formData
+ *         name: salePrice
+ *         type: number
+ *       - in: formData
+ *         name: isDeleted
+ *         type: boolean
+ *     responses:
+ *       200:
+ *         description: Sửa sản phẩm thành công
+ */
 router.post('/sua/:id.html',  upload.single('hinh'), async (req, res) => {
   const lstCategory = await CategoryModel.find(
     {
@@ -196,7 +306,22 @@ router.post('/sua/:id.html',  upload.single('hinh'), async (req, res) => {
 
   res.redirect(`/admin/product/sua/${req.params.id}.html`);
 });
-
+/**
+ * @swagger
+ * /admin/product/xoa/{id}:
+ *   get:
+ *     summary: Xóa sản phẩm
+ *     tags: [Admin - Product]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         type: number
+ *         description: ID sản phẩm
+ *     responses:
+ *       200:
+ *         description: Xóa sản phẩm thành công
+ */
 router.get('/xoa/:id', Passport.requireAuth, async (req, res) => {
   const docProduct = await ProductModel.findOne(
     {
