@@ -24,7 +24,22 @@ router.get('/danh-sach.html', Passport.requireAuth, async (req, res) => {
     moment,
   });
 });
-
+/**
+ * @swagger
+ * /admin/order/chi-tiet/{id}.html:
+ *   get:
+ *     summary: Xem chi tiết đơn hàng
+ *     tags: [Order]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Trang HTML chi tiết đơn hàng
+ */
 router.get('/chi-tiet/:id.html', Passport.requireAuth, async (req, res) => {
   const model = {};
   
@@ -66,7 +81,23 @@ router.get('/thanh-toan/:id', Passport.requireAuth, async (req, res) => {
 
   res.redirect(`/admin/order/chi-tiet/${req.params.id}.html`);
 });
-
+/**
+ * @swagger
+ * /admin/order/xoa/{id}:
+ *   get:
+ *     summary: Xóa đơn hàng theo ID
+ *     tags: [Order]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID của đơn hàng
+ *     responses:
+ *       302:
+ *         description: Redirect về /admin/order/danh-sach.html kèm flash message
+ */
 router.get('/xoa/:id', Passport.requireAuth, async (req, res) => {
   const docOrder = await OrderModel.findOne(
     {
