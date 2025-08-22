@@ -21,10 +21,37 @@ const UserModel = require('../models/user');
 const UserRole = require('../constants/user-role');
 const { db } = require('../models/user');
 
+/**
+ * @swagger
+ * tags:
+ *   name: AdminUser
+ *   description: Quản lý user trong trang admin
+ */
+
+/**
+ * @swagger
+ * /admin/user/:
+ *   get:
+ *     summary: Trang mặc định của admin user
+ *     tags: [AdminUser]
+ *     responses:
+ *       302:
+ *         description: Redirect về danh sách user
+ */
 router.get('/', Passport.requireAuth, (req, res) => {
   res.redirect('/admin/user/danh-sach.html'); 
 });
 
+/**
+ * @swagger
+ * /admin/user/danh-sach.html:
+ *   get:
+ *     summary: Lấy danh sách tất cả user
+ *     tags: [AdminUser]
+ *     responses:
+ *       200:
+ *         description: Trả về danh sách user
+ */
 router.get('/danh-sach.html', Passport.requireAuth, async (req, res) => {
   const model = {};
   
@@ -33,6 +60,22 @@ router.get('/danh-sach.html', Passport.requireAuth, async (req, res) => {
   res.render('admin/user/list', model);
 });
 
+/**
+ * @swagger
+ * /admin/user/sua/{id}.html:
+ *   get:
+ *     summary: Lấy thông tin chi tiết của 1 user
+ *     tags: [AdminUser]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Thông tin user
+ */
 router.get('/sua/:id.html', Passport.requireAuth, async (req, res) => {
   const docUser = await UserModel.findOne(
     {
@@ -55,6 +98,40 @@ router.get('/sua/:id.html', Passport.requireAuth, async (req, res) => {
   });
 });
 
+/**
+ * @swagger
+ * /admin/user/sua/{id}.html:
+ *   post:
+ *     summary: Cập nhật thông tin user
+ *     tags: [AdminUser]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullname:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *               hinh:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       302:
+ *         description: Redirect về trang sửa user sau khi cập nhật
+ */
 router.post('/sua/:id.html', Passport.requireAuth, upload.single('hinh'), async (req, res) => {
   const docUser = await UserModel.findOne(
     {
@@ -153,7 +230,22 @@ router.post('/sua/:id.html', Passport.requireAuth, upload.single('hinh'), async 
 
   res.redirect(`/admin/user/sua/${req.params.id}.html`);
 });
-
+/**
+ * @swagger
+ * /admin/user/xoa/{id}:
+ *   get:
+ *     summary: Xóa user (đánh dấu isDeleted = true)
+ *     tags: [AdminUser]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       302:
+ *         description: Redirect về danh sách user sau khi xóa
+ */
 router.get('/xoa/:id', Passport.requireAuth, async (req, res) => {
   const docUser = await UserModel.findOne(
     {
