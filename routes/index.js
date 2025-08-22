@@ -208,7 +208,26 @@ router.get('/cart/add/:id', async (req, res) => {
 
   res.redirect('/gio-hang.html');
 });
-
+/**
+ * @swagger
+ * /cart/delete:
+ *   post:
+ *     summary: Xóa sản phẩm khỏi giỏ hàng
+ *     tags: [Cart]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 example: "123"
+ *     responses:
+ *       200:
+ *         description: Xóa thành công
+ */
 router.post('/cart/delete', async (req, res) => {
   const { hasExisted, cart} = getShoppingCart(req);
 
@@ -222,7 +241,29 @@ router.post('/cart/delete', async (req, res) => {
     isSucceed: true
   });
 });
-
+/**
+ * @swagger
+ * /cart/update:
+ *   post:
+ *     summary: Cập nhật số lượng sản phẩm trong giỏ hàng
+ *     tags: [Cart]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *                 example: "123"
+ *               quantity:
+ *                 type: integer
+ *                 example: 2
+ *     responses:
+ *       200:
+ *         description: Cập nhật thành công
+ */
 router.post('/cart/update', async (req, res) => {
   const { hasExisted, cart} = getShoppingCart(req);
 
@@ -289,7 +330,16 @@ router.post('/dat-hang.html', async (req, res) => {
 
   res.redirect('/');
 });
-
+/**
+ * @swagger
+ * /menu:
+ *   post:
+ *     summary: Lấy danh sách category
+ *     tags: [Category]
+ *     responses:
+ *       200:
+ *         description: Thành công, trả về danh sách category
+ */
 router.post('/menu', async (req, res) => {
   const lstCategory = await CategoryModel.find(
     {
